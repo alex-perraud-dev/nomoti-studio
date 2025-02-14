@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
   position: absolute;
@@ -50,7 +50,7 @@ const textVariants = {
     transition: {
       duration: 2, // 2
       delay: 5,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     },
   },
 };
@@ -67,7 +67,7 @@ const pathVariants = {
     transition: {
       duration: 2,
       delay: 3,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     },
   },
 };

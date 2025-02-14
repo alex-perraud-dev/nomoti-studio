@@ -1,20 +1,20 @@
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./styles/GlobalStyles";
-import { dark } from "./styles/Themes";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import { useEffect, useRef, useState } from "react";
-import 'locomotive-scroll/dist/locomotive-scroll.css'
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/GlobalStyles';
+import { dark } from './styles/Themes';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { useEffect, useRef, useState } from 'react';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
-import Home from "./sections/Home";
-import { AnimatePresence } from "framer-motion";
-import About from "./sections/About";
-import Shop from "./sections/Shop";
+import Home from './sections/Home';
+import { AnimatePresence } from 'framer-motion';
+import About from './sections/About';
+import Shop from './sections/Shop';
 import ScrollTriggerProxy from './components/ScrollTriggerProxy';
-import Banner from "./sections/Banner";
-import NewArrival from "./sections/NewArrival";
+import Banner from './sections/Banner';
+import NewArrival from './sections/NewArrival';
 import Footer from './sections/Footer';
-import Loader from "./components/Loader";
-
+import Loader from './components/Loader';
+import Contact from './sections/Contact';
 
 function App() {
   const containerRef = useRef(null);
@@ -25,8 +25,7 @@ function App() {
     setTimeout(() => {
       setLoaded(true);
     }, 3000);
-  }, [])
-  
+  }, []);
 
   return (
     <>
@@ -37,12 +36,12 @@ function App() {
           options={{
             smooth: true,
             // ... all available Locomotive Scroll instance options
-            smartphone:{
-              smooth:true,
+            smartphone: {
+              smooth: true,
             },
-            tablet:{
-              smooth:true,
-            }
+            tablet: {
+              smooth: true,
+            },
           }}
           watch={
             [
@@ -53,19 +52,18 @@ function App() {
           }
           containerRef={containerRef}
         >
-        <AnimatePresence>
-        {loaded ? null : <Loader />}
-        </AnimatePresence>
-        <ScrollTriggerProxy />
+          <AnimatePresence>{loaded ? null : <Loader />}</AnimatePresence>
+          <ScrollTriggerProxy />
           <AnimatePresence>
-          <main className='App' data-scroll-container ref={containerRef}>
-            <Home />
-            <About />
-            <Shop />
-            <Banner />
-            <NewArrival />
-            <Footer />
-          </main>
+            <main className="App" data-scroll-container ref={containerRef}>
+              <Home />
+              <Contact />
+              <About />
+              <Shop />
+              <Banner />
+              <NewArrival />
+              <Footer />
+            </main>
           </AnimatePresence>
         </LocomotiveScrollProvider>
       </ThemeProvider>

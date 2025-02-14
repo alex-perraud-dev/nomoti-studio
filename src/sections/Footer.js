@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Logo from "../assets/Svgs/star_white_48dp.svg";
-import { motion } from "framer-motion";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
+import Logo from '../assets/Svgs/star_white_48dp.svg';
+import { motion } from 'framer-motion';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const Section = styled.section`
   min-height: 100vh;
@@ -33,7 +33,7 @@ const LogoContainer = styled.div`
   }
   h3 {
     font-size: ${(props) => props.theme.fontxxl};
-    font-family: "Kaushan Script";
+    font-family: 'Kaushan Script';
 
     @media (max-width: 48em) {
       font-size: ${(props) => props.theme.fontxl};
@@ -117,8 +117,8 @@ const Footer = () => {
     let elem = document.querySelector(id);
 
     scroll.scrollTo(elem, {
-      offset: "-100",
-      duration: "2000",
+      offset: '-100',
+      duration: '2000',
       easing: [0.25, 0.0, 0.35, 1.0],
     });
   };
@@ -132,7 +132,7 @@ const Footer = () => {
         </h3>
       </LogoContainer>
       <FooterComponent
-        initial={{ y: "-400px" }}
+        initial={{ y: '-400px' }}
         whileInView={{ y: 0 }}
         viewport={{ once: false }}
         transition={{
@@ -140,10 +140,10 @@ const Footer = () => {
         }}
       >
         <ul>
-          <li onClick={() => handleScroll("#home")}>home</li>
-          <li onClick={() => handleScroll(".about")}>about</li>
-          <li onClick={() => handleScroll("#shop")}>shop</li>
-          <li onClick={() => handleScroll("#new-arrival")}>new arrival</li>
+          <li onClick={() => handleScroll('#home')}>home</li>
+          <li onClick={() => handleScroll('.about')}>about</li>
+          <li onClick={() => handleScroll('#shop')}>shop</li>
+          <li onClick={() => handleScroll('#new-arrival')}>new arrival</li>
           <li>
             <a href="https://google.com" target="_blank" rel="noreferrer">
               look book

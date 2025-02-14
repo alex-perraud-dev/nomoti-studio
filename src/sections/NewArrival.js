@@ -1,12 +1,12 @@
-import React, { useLayoutEffect, useRef } from "react";
-import styled from "styled-components";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import React, { useLayoutEffect, useRef } from 'react';
+import styled from 'styled-components';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import img1 from "../assets/Images/11.webp";
-import img2 from "../assets/Images/12.webp";
-import img3 from "../assets/Images/13.webp";
-import img4 from "../assets/Images/14.webp";
+import img1 from '../assets/Images/11.webp';
+import img2 from '../assets/Images/12.webp';
+import img3 from '../assets/Images/13.webp';
+import img4 from '../assets/Images/14.webp';
 
 const Section = styled.section`
   min-height: 100vh;
@@ -53,7 +53,7 @@ const Overlay = styled.div`
 
 const Title = styled.h1`
   font-size: ${(props) => props.theme.fontxxxl};
-  font-family: "Kaushan Script";
+  font-family: 'Kaushan Script';
   font-weight: 300;
   text-shadow: 1px 1px 1px ${(props) => props.theme.text};
   color: ${(props) => props.theme.body};
@@ -122,7 +122,7 @@ const Item = styled.div`
   }
 `;
 
-const Product = ({ img, title = "" }) => {
+const Product = ({ img, title = '' }) => {
   return (
     <Item>
       <img src={img} alt={title} />
@@ -147,31 +147,31 @@ const NewArrival = () => {
       t1.to(element, {
         scrollTrigger: {
           trigger: element,
-          start: "top top",
-          end: "bottom+=100% top-=100%",
-          scroller: ".App", // locomotive element
+          start: 'top top',
+          end: 'bottom+=100% top-=100%',
+          scroller: '.App', // locomotive element
           scrub: true,
           pin: true,
           //   markers:true,
         },
         // we have to increase scrolling height of this section same as the scrolling element width
-        ease: "none,",
+        ease: 'none,',
       });
 
       // Verticle Scrolling
       t1.fromTo(
         scrollingElement,
         {
-          y: "0",
+          y: '0',
         },
 
         {
-          y: "-100%",
+          y: '-100%',
           scrollTrigger: {
             trigger: scrollingElement,
-            start: "top top",
-            end: "bottom top",
-            scroller: ".App", // locomotive element
+            start: 'top top',
+            end: 'bottom top',
+            scroller: '.App', // locomotive element
             scrub: true,
 
             //   markers:true,
@@ -208,7 +208,7 @@ const NewArrival = () => {
       </Container>
 
       <Text data-scroll data-scroll-speed="-4">
-        There is new collection available for cool clothes in all sizes. This
+        There is dernières sorties available for cool clothes in all sizes. This
         collection is a great way to find a new look for you. It offers a
         variety of cool apparel styles to fit your taste, while you can also
         find some cool clothes that you can wear everyday.

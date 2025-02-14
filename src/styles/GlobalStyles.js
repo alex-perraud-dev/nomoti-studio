@@ -1,8 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import "@fontsource/kaushan-script";
-import "@fontsource/sirin-stencil";
-
-
+import { createGlobalStyle } from 'styled-components';
+import '@fontsource/kaushan-script';
+import '@fontsource/sirin-stencil';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -25,5 +23,5 @@ a{
     text-decoration: none;
 }
 
-`
+`;
 export default GlobalStyles;

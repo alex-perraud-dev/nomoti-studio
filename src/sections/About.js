@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import img1 from "../assets/Images/1.webp";
-import img2 from "../assets/Images/2.webp";
-import img3 from "../assets/Images/3.webp";
+import img1 from '../assets/Images/1.webp';
+import img2 from '../assets/Images/2.webp';
+import img3 from '../assets/Images/3.webp';
 
 const Section = styled.section`
   position: relative;
@@ -22,7 +22,7 @@ const Section = styled.section`
 `;
 const Title = styled.h1`
   font-size: ${(props) => props.theme.fontBig};
-  font-family: "Kaushan Script";
+  font-family: 'Kaushan Script';
   font-weight: 300;
 
   position: absolute;
@@ -124,7 +124,7 @@ const About = () => {
         data-scroll-speed="-2"
         data-scroll-direction="horizontal"
       >
-        About Us
+        À Propos
       </Title>
       <Left data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
         We're fashion studio based in california. We create unique designs that
@@ -143,19 +143,19 @@ const About = () => {
         something that is easy for everyone.
       </Left>
       <Right>
-        <img src={img1} alt="About Us" />
+        <img src={img1} alt="À Propos" />
         <img
           data-scroll
           data-scroll-speed="5"
           src={img2}
           className="small-img-1"
-          alt="About Us"
+          alt="À Propos"
         />
         <img
           data-scroll
           data-scroll-speed="-2"
           src={img3}
-          alt="About Us"
+          alt="À Propos"
           className="small-img-2"
         />
       </Right>

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Section = styled.section`
   min-height: 100vh;
@@ -31,7 +31,7 @@ const Container = styled.div`
 
 const BannerComponent = styled.h1`
   font-size: ${(props) => props.theme.fontxxxl};
-  font-family: "Kaushan Script";
+  font-family: 'Kaushan Script';
   color: ${(props) => props.theme.text};
   white-space: nowrap;
   text-transform: uppercase;
@@ -68,7 +68,7 @@ const Banner = () => {
             data-scroll-speed="8"
             data-scroll-target="#up"
           >
-            Fashion is an armour{" "}
+            Fashion is an armour{' '}
           </span>
         </BannerComponent>
         <BannerComponent>

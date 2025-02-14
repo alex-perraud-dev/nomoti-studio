@@ -1,21 +1,21 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import React, { useLayoutEffect } from "react";
-import styled from "styled-components";
-import { useRef } from "react";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useLayoutEffect } from 'react';
+import styled from 'styled-components';
+import { useRef } from 'react';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-import img1 from "../assets/Images/1.webp";
-import img2 from "../assets/Images/2.webp";
-import img3 from "../assets/Images/3.webp";
-import img4 from "../assets/Images/4.webp";
-import img5 from "../assets/Images/5.webp";
-import img6 from "../assets/Images/6.webp";
-import img7 from "../assets/Images/7.webp";
-import img8 from "../assets/Images/8.webp";
-import img9 from "../assets/Images/9.webp";
-import img10 from "../assets/Images/10.webp";
+import img1 from '../assets/Images/1.webp';
+import img2 from '../assets/Images/2.webp';
+import img3 from '../assets/Images/3.webp';
+import img4 from '../assets/Images/4.webp';
+import img5 from '../assets/Images/5.webp';
+import img6 from '../assets/Images/6.webp';
+import img7 from '../assets/Images/7.webp';
+import img8 from '../assets/Images/8.webp';
+import img9 from '../assets/Images/9.webp';
+import img10 from '../assets/Images/10.webp';
 
 const Section = styled.section`
   min-height: 100vh;
@@ -32,7 +32,7 @@ const Section = styled.section`
 `;
 const Title = styled.h1`
   font-size: ${(props) => props.theme.fontxxxl};
-  font-family: "Kaushan Script";
+  font-family: 'Kaushan Script';
   font-weight: 300;
   text-shadow: 1px 1px 1px ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
@@ -133,13 +133,13 @@ const Item = styled(motion.div)`
   }
 `;
 
-const Product = ({ img, title = "" }) => {
+const Product = ({ img, title = '' }) => {
   return (
     <Item
-      initial={{ filter: "grayscale(100%)" }}
-      whileInView={{ filter: "grayscale(0%)" }}
+      initial={{ filter: 'grayscale(100%)' }}
+      whileInView={{ filter: 'grayscale(0%)' }}
       transition={{ duration: 0.5 }}
-      viewport={{ once: false, amount: "all" }}
+      viewport={{ once: false, amount: 'all' }}
     >
       <img src={img} alt={title} />
       <h1>{title}</h1>
@@ -165,32 +165,32 @@ const Shop = () => {
       t1.to(element, {
         scrollTrigger: {
           trigger: element,
-          start: "top top",
+          start: 'top top',
           end: pinWrapWidth,
-          scroller: ".App", // locomotive element
+          scroller: '.App', // locomotive element
           scrub: true,
           pin: true,
           // markers:true,
         },
         // we have to increase scrolling height of this section same as the scrolling element width
         height: `${scrollingElement.scrollWidth}px`,
-        ease: "none,",
+        ease: 'none,',
       });
 
       // Horizontal Scrolling
       t1.to(scrollingElement, {
         scrollTrigger: {
           trigger: scrollingElement,
-          start: "top top",
+          start: 'top top',
           end: pinWrapWidth,
-          scroller: ".App", // locomotive element
+          scroller: '.App', // locomotive element
           scrub: true,
 
           // markers:true,
         },
         // we have to increase scrolling height of this section same as the scrolling element width
         x: -pinWrapWidth,
-        ease: "none,",
+        ease: 'none,',
       });
       ScrollTrigger.refresh();
     }, 1000);
@@ -205,11 +205,11 @@ const Shop = () => {
   return (
     <Section ref={ref} id="shop">
       <Title data-scroll data-scroll-speed="-1">
-        New Collection
+        Dernières Sorties
       </Title>
       <Left>
         <p>
-          The brand new collection is currently being developed in USA. We
+          The brand dernières sorties is currently being developed in USA. We
           create our products using best quality material, including the use of
           some of the pure fabrics to make our products. All products are made
           using the best materials, from the finest cotton to the finest

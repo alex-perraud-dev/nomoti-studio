@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import MainVideo from "../assets/Walking Girl.mp4";
-import { motion } from "framer-motion";
+import React from 'react';
+import styled from 'styled-components';
+import MainVideo from '../assets/Walking Girl.mp4';
+import { motion } from 'framer-motion';
 
 const VideoContainer = styled.section`
   width: 100%;
@@ -51,7 +51,7 @@ const Title = styled(motion.div)`
   }
 
   h1 {
-    font-family: "Kaushan Script";
+    font-family: 'Kaushan Script';
     font-size: ${(props) => props.theme.fontBig};
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
@@ -60,7 +60,7 @@ const Title = styled(motion.div)`
     }
   }
   h2 {
-    font-family: "Sirin Stencil";
+    font-family: 'Sirin Stencil';
     font-size: ${(props) => props.theme.fontlg};
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
     font-weight: 300;
