@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import img1 from '../assets/Images/11.webp';
-import img2 from '../assets/Images/12.webp';
-import img3 from '../assets/Images/13.webp';
+import mao from '../assets/Images/Services/cours-de-mao.webp';
+import studioSession from '../assets/Images/Services/session-studio.webp';
+import mixAndMastering from '../assets/Images/Services/mixage-mastering-musique.webp';
 import img4 from '../assets/Images/14.webp';
 
 const Section = styled.section`
@@ -197,13 +197,13 @@ const NewArrival = () => {
         data-scroll-speed="-2"
         data-scroll-direction="horizontal"
       >
-        New Arrivals
+        Mes services
       </Title>
 
       <Container ref={ScrollingRef}>
-        <Product img={img1} title="Denim" />
-        <Product img={img2} title="Cool Dresses" />
-        <Product img={img3} title="Jackets" />
+        <Product img={studioSession} title="Session studio" />
+        <Product img={mao} title="Cours de MAO" />
+        <Product img={mixAndMastering} title="Mixage et Mastering" />
         <Product img={img4} title="T-shirts" />
       </Container>
 

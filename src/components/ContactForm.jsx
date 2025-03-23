@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import StyledDatePicker from './StyledDatePicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Importer le style de react-datepicker
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import fr from 'date-fns/locale/fr'; // Importe la locale française
+import { gsap } from 'gsap';
 
 const FormContainer = styled.section`
   min-height: 100vh;
@@ -51,10 +53,18 @@ const Input = styled.input`
     outline: none;
     border-color: ${(props) => props.theme.text};
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px ${(props) => props.theme.body} inset !important;
+    -webkit-text-fill-color: ${(props) => props.theme.text} !important;
+  }
 `;
 
 const Select = styled.select`
-  width: 94%;
+  width: 100%;
   padding: 1rem;
   margin: 0.5rem 0;
   border: 1px solid ${(props) => props.theme.text};
@@ -92,25 +102,71 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   font-size: ${(props) => props.theme.fontlg};
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background-color: ${(props) => props.theme.grey};
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+  }
+
+  &:active {
+    transform: scale(0.95); /* Réduction de la taille au clic */
   }
 `;
 
 const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 1rem 0;
 `;
 
 const Checkbox = styled.input`
-  margin-right: 0.5rem;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + label {
+    background-color: ${(props) => props.theme.text};
+  }
+
+  &:checked + label:before {
+    transform: translateX(10px);
+  }
+`;
+
+const SwitchLabel = styled.label`
+  margin-top: 3px;
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  background-color: ${(props) => props.theme.grey};
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: ${(props) => props.theme.body};
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+`;
+
+const Label = styled.label`
+  margin-left: 0.5rem;
+  color: ${(props) => props.theme.text};
 `;
 
 const DatePickerContainer = styled.div`
-  width: 94%;
+  width: 100%;
   margin: 0.5rem 0;
 `;
 
@@ -123,6 +179,9 @@ const ContactForm = () => {
     message: '',
     consent: false,
   });
+
+  const formRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -138,17 +197,53 @@ const ContactForm = () => {
     console.log(formData);
   };
 
+  // Animation d'apparition avec GSAP
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('laa');
+            setIsVisible(true);
+            gsap.from('.form-field', {
+              opacity: 0,
+              y: 20,
+              stagger: 0.1,
+              duration: 0.5,
+              delay: 0.4,
+            });
+            observer.unobserve(entry.target); // Arrêter d'observer après l'animation
+          }
+        });
+      },
+      {
+        rootMargin: '0px 0px -400px 0px', // Déclenche l'animation lorsque l'élément est visible à 400px du bas
+      }
+    );
+
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
+
+    return () => {
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <FormContainer>
+    <FormContainer ref={formRef}>
       <Form
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
         onSubmit={handleSubmit}
       >
         <Title>Contactez-nous</Title>
         <Input
+          className="form-field"
           type="text"
           name="firstName"
           placeholder="Votre prénom"
@@ -157,6 +252,7 @@ const ContactForm = () => {
           required
         />
         <Input
+          className="form-field"
           type="text"
           name="lastName"
           placeholder="Votre nom"
@@ -165,6 +261,7 @@ const ContactForm = () => {
           required
         />
         <Select
+          className="form-field"
           name="service"
           value={formData.service}
           onChange={handleChange}
@@ -187,16 +284,19 @@ const ContactForm = () => {
           <option value="Cours de MAO">Cours de MAO</option>
         </Select>
         <DatePickerContainer>
-          <StyledDatePicker
+          <DatePicker
+            className="form-field"
             selected={formData.date}
             onChange={handleDateChange}
             showTimeSelect
             dateFormat="Pp"
             placeholderText="Choisissez une date et une heure"
+            locale={fr} // définit la langue en français
             required
           />
         </DatePickerContainer>
         <TextArea
+          className="form-field"
           name="message"
           placeholder="Votre message"
           rows="5"
@@ -208,10 +308,12 @@ const ContactForm = () => {
           <Checkbox
             type="checkbox"
             name="consent"
+            id="consent"
             checked={formData.consent}
             onChange={handleChange}
           />
-          <label>J'accepte d'être recontacté</label>
+          <SwitchLabel htmlFor="consent" />
+          <Label>J'accepte d'être recontacté</Label>
         </CheckboxContainer>
         <Button type="submit">Envoyer le message</Button>
       </Form>

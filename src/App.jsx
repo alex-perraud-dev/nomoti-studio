@@ -5,16 +5,17 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useEffect, useRef, useState } from 'react';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 
-import Home from './sections/Home';
+import HomePage from './pages/Home';
 import { AnimatePresence } from 'framer-motion';
-import About from './sections/About';
-import Shop from './sections/Shop';
 import ScrollTriggerProxy from './components/ScrollTriggerProxy';
-import Banner from './sections/Banner';
-import NewArrival from './sections/NewArrival';
 import Footer from './sections/Footer';
 import Loader from './components/Loader';
-import Contact from './sections/Contact';
+import DatePickerGlobalStyles from './components/StyledDatePicker';
+import { Route, Routes } from 'react-router-dom';
+import MasteringPage from './pages/Mastering';
+import StudioSessionPage from './pages/StudioSession';
+import MaoPage from './pages/Mao';
+import ContactPage from './pages/Contact';
 
 function App() {
   const containerRef = useRef(null);
@@ -56,12 +57,14 @@ function App() {
           <ScrollTriggerProxy />
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
-              <Home />
-              <Contact />
-              <About />
-              <Shop />
-              <Banner />
-              <NewArrival />
+              <DatePickerGlobalStyles />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/session-studio" element={<StudioSessionPage />} />
+                <Route path="/mastering-mix" element={<MasteringPage />} />
+                <Route path="/cours-de-mao" element={<MaoPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
               <Footer />
             </main>
           </AnimatePresence>

@@ -5,24 +5,26 @@
   "dependencies": {
     "@fontsource/kaushan-script": "^4.5.2",
     "@fontsource/sirin-stencil": "^4.5.2",
+    "@vitejs/plugin-react-swc": "^3.8.1",
+    "date-fns": "^4.1.0",
     "framer-motion": "^12.4.2",
     "gsap": "^3.9.1",
     "locomotive-scroll": "^4.1.4",
     "react": "^18.3.1",
-    "react-datepicker": "^8.0.0",
+    "react-datepicker": "^8.2.1",
     "react-dom": "^18.3.1",
     "react-locomotive-scroll": "^0.2.0",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.3",
+    "vite": "^6.2.2",
+    "vite-plugin-svgr": "^4.3.0",
+    "vite-tsconfig-paths": "^5.1.4",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write ."
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "overrides": {
     "nth-check": "2.1.1"
