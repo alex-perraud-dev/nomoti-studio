@@ -127,23 +127,28 @@ const About = () => {
         À Propos
       </Title>
       <Left data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
-        We're fashion studio based in california. We create unique designs that
-        will blow your mind. We also design unique jewellary pieces. Fashion is
-        an ART that can not be grasped by everyone.
-        <br />
-        <br />
-        We are very dedicated to making our products. We offer unique and
-        creative products to a wide range of people. We have a variety of
-        styles, but for most people, all of the options are in the box. We
-        specialize in making things that make you happy.
-        <br />
-        <br />
-        We strive to build on our vision. As a fashion label, we do our best to
-        create amazing experiences for all people. We are always looking to make
-        something that is easy for everyone.
+        <p>
+          <strong>Matthias, alias Nomoti</strong>, accompagne les artistes
+          depuis plus de 20 ans. Musicien depuis l’enfance, formé au
+          conservatoire (guitare, solfège), il pratique la MAO et
+          l’enregistrement depuis ses 17 ans. Multi-instrumentiste, il a
+          collaboré avec de nombreux groupes et chanteurs.
+          <br />
+          <br />
+          Sa pédagogie, sa bienveillance et son expérience lui permettent
+          d’offrir un accompagnement sur-mesure, que ce soit pour
+          l’enregistrement, le mixage, le mastering ou le conseil artistique.{' '}
+          <br />
+          <br />
+          Chez <strong>Nomoti Studio</strong>, chaque projet est unique : votre
+          sensibilité, vos envies et votre identité artistique sont au cœur de
+          l’expérience. Le studio, à l’image de sa mascotte chat, est pensé
+          comme un cocon professionnel, chaleureux et créatif.
+        </p>
       </Left>
       <Right>
         <img src={img1} alt="À Propos" />
+        {/*TODO Photo Matthias*/}
         <img
           data-scroll
           data-scroll-speed="5"

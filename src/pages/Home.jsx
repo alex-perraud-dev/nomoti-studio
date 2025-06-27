@@ -6,6 +6,7 @@ import Banner from '../sections/Banner';
 import NewArrival from '../sections/NewArrival';
 import Footer from '../sections/Footer';
 import Home from '../sections/Home';
+import FAQ from '../sections/Faq';
 
 const HomePage = () => {
   return (

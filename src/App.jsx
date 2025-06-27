@@ -27,7 +27,9 @@ function App() {
       setLoaded(true);
     }, 3000);
   }, []);
-
+  if (typeof window !== 'undefined' && window.history.scrollRestoration) {
+    window.scrollTo(0, 0);
+  }
   return (
     <>
       <GlobalStyles />

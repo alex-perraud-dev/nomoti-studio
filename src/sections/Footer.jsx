@@ -89,7 +89,7 @@ const Bottom = styled.div`
   font-size: ${(props) => props.theme.fontlg};
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   a {
     text-decoration: underline;
@@ -162,20 +162,6 @@ const Footer = () => {
             data-scroll-direction="horizontal"
           >
             &copy; {new Date().getFullYear()}. All Rights Reserved.
-          </span>
-          <span
-            data-scroll
-            data-scroll-speed="-2"
-            data-scroll-direction="horizontal"
-          >
-            Made with &hearts; by &nbsp;
-            <a
-              href="https://youtube.com/codebucks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              CodeBucks
-            </a>
           </span>
         </Bottom>
       </FooterComponent>

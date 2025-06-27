@@ -73,7 +73,7 @@ const DatePickerGlobalStyles = createGlobalStyle`
         border-left: 1px solid ${(props) => props.theme.grey} !important;
     }
     .react-datepicker__time .react-datepicker__time-box {
-        background-color: black !important;
+      background-color: ${(props) => props.theme.body} !important;
         color: white !important;
     }
     .react-datepicker__time .react-datepicker__time-box li {
